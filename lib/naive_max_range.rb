@@ -1,7 +1,7 @@
 
 
 def naive_max_range(array, w)
-    # O(n^2) time complexity -- First loop over each index, then loop through slice for max and min
+    # O(n^2) time complexity -- First loop over each index, then loop through each slice for max and min
     # O(n+1) space (updating window_range variable for each index)
     current_max_range = 0
     (0...array.length).each do |idx|

@@ -1,6 +1,7 @@
 require_relative "min_max_stack_queue"
 
 def windowed_max_range(array, w)
+    # O(n) time complexity -- Single pass through array to enqueue/dequeue elements and check max range
     range = MinMaxStackQueue.new
     greatest_range = nil
     (0...w).each do |i|
@@ -12,8 +13,7 @@ def windowed_max_range(array, w)
     (w...array.length).each do |i|
         range.dequeue
         range.enqueue(array[i])
-        current_range = range.max - range.min
-        greatest_range = current_range if current_range > greatest_range
+        greatest_range = (range.max - range.min) if (range.max - range.min) > greatest_range
     end
     greatest_range
 end
